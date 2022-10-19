@@ -40,15 +40,15 @@ jobs:
         cache-dependency-path: '**/package-lock.json'
     - run: npm ci
     - run: npm test
-  #CD part
-  #deploy:
-  #  needs: test 
-  #  runs-on: ubuntu-latest
-  #  steps:
-  #    - uses: actions/checkout@v2
-  #    - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
-  #      with:
-  #        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-  #        heroku_app_name: "xxxx" #Must be unique in Heroku
-  #        heroku_email: "xxxx"
-  #        appdir: user-api
+  CD part
+  deploy:
+    needs: test 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: "bddadd5a-cffc-4ec5-b1b9-37f00369862f"
+          heroku_app_name: "dstidevops" #Must be unique in Heroku
+          heroku_email: "saschamoccozet@gmail.com"
+          appdir: user-api
